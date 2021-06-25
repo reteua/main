@@ -1,0 +1,116 @@
+baseurl: ''
+domain: realestate.te.ua
+url: 'https://www.realestate.te.ua'
+
+encoding: UTF-8
+lang: uk_UA
+timezone: Europe/Helsinki
+country: Україна
+region: Тернопільська область
+region_slug: ternopilska
+region_size: .89rem
+
+usd: 27.75
+eur: 33.73
+
+title: Мережа Вебсайтів Нерухомості
+keywords: будинки, квартири, земля, житло, нежитлові приміщення, кімнати, оренда, частини квартири, частини будинку, гаражі, місця паркування, ділянки
+description: Купівля, продаж і тривала та подобова оренда квартир, будинків, землі, комерційної нежитлової нерухомості в Тернопіль та області
+name: Регіональна нерухомість
+brand: Нерухомість
+logo: '/assets/images/logo.svg'
+
+author:
+  name: Vasyl&nbsp;Mosiychuk
+  website: http://www.vasyl.net
+  email: info@vasyl.net
+developer:
+  name: vasyl.net
+  website: http://www.vasyl.net
+  email: info@vasyl.net
+
+contact:
+  name: Мережа Вебсайтів Нерухомості в&nbsp;Україні
+  address: 76018, м. Івано-Франківськ, вул.&nbsp;Січових&nbsp;Стрільців,&nbsp;56
+  phone_main: 380974949649
+  phone_hot: 380974949649
+  phone_fax: 380974949649
+  phone_sms: 380504949649
+  phone_advert: 380504949649
+  phone_buy_sell: 380974949649
+  phone_add_ads: 380504949649
+  phone_submit_ads: 380504949649
+  phone_support: 380504949649
+  phone_buy: 380974949649
+  phone_sell: 380974949649
+  email: info@realestate.te.ua
+  www: https://www.realestate.te.ua/
+
+markdown: kramdown
+kramdown:
+  auto_ids: false
+
+collections:
+  help:
+    output: true
+  stabs:
+    output: true
+  otabs:
+    output: true
+  owners:
+    output: true
+
+defaults:
+  - scope:
+      path: /*/data/*.json
+    values:
+      layout: "null"
+      sitemap: false
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: /articles/
+      type: "articles"
+    values:
+      layout: "articles"
+  - scope:
+      path: /news/
+      type: "news"
+    values:
+      layout: "news"
+  - scope:
+      path: "assets/images"
+    values:
+      image: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate-v2
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: [""]
+  endings: []
+  ignore:
+    envs: []
+  blanklines: false
+  profile: false
+  startings: []
+
+main_url: https://www.realestate.net.ua
+#staticman_url: https://addnew.herokuapp.com/v2/entry/realtyua/main/master/comments
+
+#reCaptcha:
+#  siteKey: 6LdKdRkaAAAAAANwi81j7jDqLF9gUxhsMb4-Tq8t
+#  secret: ByhNs6NxIJxxLWSJ3YGTd5ud4Y/dh/4DhlIIWpQmD4/r9aTjJKFkn83gbJkwn7+AnFFoNk8eSXtghuk4VNf534Z3GdnUDNpHegQsA2OcC6bY7rO2qEkf4Z+QURaiV5lsW5tJ4TRrI/VCUP3Bu4oHdNpaowCEh8jYR/P5anz9+c8FjKZ7ch28T7NJZw/4grYl8eb3rO+BIguUWC2OXICLYiIYsmxNNiHkXJ7QBPcFPnfva9TNl+DVmvCH5nX/1AD3OW3LY/K9IF6rD4wQYumkxsA8fjnx3ULMEIO0aKn+5gJZSLpLVpw0QsBj+Qfp+DyC2W6ModaP9xqvce+wPfsEBPqZZmG2ZQcB2Ca5ioHYSxG+xfKh2gtedoonhL7UIGm/DAD5E/annU6szA1uQqlXb7JXUBskh9AOYm+utyZxZTNC3+ctXhQTfZGV+I0AMp4yfRJ/2gBv8pT52r9jxXVBSpUKw8Ex49At1VPdn+2Q+zr7NmdFKIHgvXRxyfq/IB0ygr3tKQKceuvYXAPlXrJF9q9RUX6BaMtOcK1uzF63wIv+L0htKvE7i4ig8nv5o5FMwfyAZ0FsabiKUtABn85hYrCi6L0najgWR1WER87TOnewsY0VW5/NlULkVB7FiPUy4NsUb3lhhfaYPDS+8ysqZCoREkUdGghdK7gWRORVwtQ=

@@ -1,0 +1,177 @@
+{%- assign lists = site.pages | sort: 'path' | reverse -%}
+{%- assign region = page.url | split: "/" | last -%}
+<nav class="navbar navbar-expand-lg navbar-light bg-white p-0">
+  <div class="navbar-brand d-lg-none p-0">
+    <span class="small">{{ site.data.lang-uk.brand_content }}</span>
+    <span class="ml-1 float-right align-middle text-primary">→</span>
+  </div>
+  <button class="navbar-toggler ml-1 shadow-none collapsed" type="button" data-toggle="collapse" data-target="#navbarTwoRealEstate" aria-controls="navbarTwoRealEstate" aria-expanded="false" aria-label="Toggle button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarTwoRealEstate">
+    {%- assign mapPage = page.url | append: 'map.html' | remove_first: '/' -%}
+    {%- capture isMap -%}{%- file_exists {{ mapPage }} -%}{%- endcapture -%}
+    {%- if isMap == 'true' -%}
+    <ul class="navbar-nav nav nav-tabs border-0 mr-md-auto" id="realestate-map">
+      <li class="nav-item">
+        <h5 class="m-lg-0">
+          {%- if page.url contains mapPage -%}
+            <span class="badge badge-primary border-0" title="{{ site.data.lang-uk.re_map_on }}">
+              <span>{{ site.data.lang-uk.re_map }}</span>
+              <span class="d-lg-none">{{ site.data.lang-uk.nerukhomisti }}</span>
+            </span>
+          {%- else -%}
+            <a class="badge badge-primary border-0" href="/{{ mapPage }}" title="{{ site.data.lang-uk.re_map_on }}">
+              <span>{{ site.data.lang-uk.re_map }}</span>
+              <span class="d-lg-none">{{ site.data.lang-uk.nerukhomisti }}</span>
+            </a>
+          {%- endif -%}
+        </h5>
+      </li>
+    </ul>
+    {%- endif -%}
+    <ul class="navbar-nav nav nav-tabs border-0" id="realestate-nav">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link border-0 active" href="#newly" id="newly-tab" data-toggle="tab" role="tab" aria-controls="newly" aria-selected="true">
+          <span>{{ site.data.lang-uk.newly_realestate }}</span>
+        </a>
+      </li>
+      {%- for tab in lists -%}
+        {%- assign slug = tab.url | split: "/" | last -%}
+        {%- assign current = tab.url | remove: slug | remove: "//" | append: "/" -%}
+        {%- if page.dir == current and page.title != '' and page.navhide != 1 -%}
+          <li class="nav-item" role="presentation">
+            <a{% if slug == 'commercial' %} title="{{ site.data.lang-uk.re_no_apartments }}"{% elsif slug == 'realtor' %} title="{{ site.data.lang-uk.agents }} {{ site.data.lang-uk.and }} {{ site.data.lang-uk.realtors }}"{% elsif slug == 'developer' %} title="{{ site.data.lang-uk.new_buildings }}"{% endif %} class="nav-link border-0" href="#{{ slug }}" id="{{ slug }}-tab" data-toggle="tab" role="tab" aria-controls="{{ slug }}" aria-selected="true">
+              <span>
+                {%- if slug == 'commercial' -%}
+                  {{ site.data.lang-uk.title_tab_commercial }}
+                {%- elsif slug == 'realtor' -%}
+                  {{ site.data.lang-uk.title_tab_realtor }}
+                {%- else -%}
+                  {%- if tab.navtitle -%}{{ tab.navtitle }}{%- else -%}{{ tab.title }}{%- endif -%}
+                {%- endif -%}
+              </span>
+            </a>
+          </li>
+        {%- endif -%}
+      {%- else -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</nav>
+<hr class="mb-2 mt-2 mt-md-0 mt-lg-0">
+{%- include thanks-please.html -%}
+<div class="tab-content" id="realestate-content">
+  <div class="tab-pane fade show active" id="newly" role="tabpanel" aria-labelledby="newly-tab">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="mb-3">{{ site.data.lang-uk.vsya }} {{ page.title | replace_first: 'Нерухомість в', 'нерухомість у' }}</h2>
+        {%- capture data -%}data/{{ region }}/all.html{%- endcapture -%}
+        {%- include {{ data }} -%}
+        {%- if offers.size > 0 -%}
+
+          {%- for offer in offers limit:9 -%}
+
+            {%- if forloop.first -%}
+              <div class="row mx-n2 row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-2">
+            {%- endif -%}
+
+                <div class="col px-2 mb-3">
+                {%- include card.html offer=offer aid='0' -%}
+                </div>
+
+            {%- if forloop.last -%}
+              </div>
+              {%- assign total = offers | size -%}
+              {%- assign others = total | minus:9 -%}
+              {%- if others > 0 -%}
+                <div class="row">
+                  <div class="col-auto ml-auto">
+                    <a class="btn btn-sm btn-primary" href="{{ page.dir | append: 'all' }}">
+                      {{ site.data.lang-uk.others }} <strong>{{ others }}</strong> {{ site.data.lang-uk.others_offers }}
+                    </a>
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+
+          {%- else -%}
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+                {%- include none-advertisement.html title=page.title -%}
+              </div>
+            </div>
+          {%- endfor -%}
+
+        {%- else -%}
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+              {%- include none-advertisement.html title=page.title -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  {%- for content in lists -%}
+    {%- if forloop.first -%}
+    {%- endif -%}
+      {%- assign slug = content.url | split: "/" | last -%}
+      {%- assign current = content.url | remove: slug | remove: "//" | append: "/" -%}
+      {%- capture title -%}{%- if content.navtitle -%}{{ content.navtitle }}{%- else -%}{{ content.title }}{%- endif -%}{%- endcapture -%}
+      {%- if page.dir == current and page.title != '' and page.navhide != 1 -%}
+        <div class="tab-pane fade" id="{{ slug }}" role="tabpanel" aria-labelledby="{{ slug }}-tab">
+          <div class="row">
+            <div class="col-12">
+              {%- assign addtitle = page.title | split: " " | slice: 1, 4 | join: " " -%}
+              {%- if slug == 'realtor' or slug == 'agency' or slug == 'developer' -%}
+                <h2 class="mb-3">{{ title }} {{ site.data.lang-uk.nerukhomisti }} {{ addtitle }} </h2>
+                {%- assign dir = page.dir | append: slug | append: '/' -%}
+                {%- include subpages.html dir=dir page=slug title=title -%}
+              {%- else -%}
+                <h2 class="mb-3">{{ title }} {{ addtitle }}</h2>
+                {%- capture data -%}data/{{ region }}/{{ slug }}.html{%- endcapture -%}
+                {%- capture aid -%}2{%- increment counter -%}{%- endcapture -%}
+                {%- include {{ data }} -%}
+                {%- for offer in offers limit: 9 -%}
+
+                  {%- if forloop.first -%}
+                    <div class="row mx-n2 row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-2">
+                  {%- endif -%}
+
+                      <div class="col px-2 mb-3">
+                        {%- include card.html offer=offer aid=aid -%}
+                      </div>
+
+                  {%- if forloop.last -%}
+                    </div>
+                    {%- assign total = offers | size -%}
+                    {%- assign others = total | minus:9 -%}
+                    {%- if others > 0 -%}
+                      <div class="row">
+                        <div class="col-auto ml-auto">
+                          <a class="btn btn-sm btn-primary" href="{{ content.url }}">
+                            {{ site.data.lang-uk.others }} <strong>{{ others }}</strong> {{ site.data.lang-uk.others_section }} {{ content.navtitle }}
+                          </a>
+                        </div>
+                      </div>
+                    {%- endif -%}
+                  {%- endif -%}
+
+                {%- else -%}
+                  <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                      {%- include none-advertisement.html title=page.title -%}
+                    </div>
+                  </div>
+                {%- endfor -%}
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+    {%- if forloop.last -%}
+    {%- endif -%}
+  {%- else -%}
+  {%- endfor -%}
+</div>

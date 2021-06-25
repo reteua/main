@@ -1,0 +1,23 @@
+---
+last_modified_at: 2021-06-21T21:52:10+02:00
+title: Нерухомість територіальних об’єднаних грамад Тернопільської області
+navhide: 1
+---
+
+<div class="row">
+  <div class="col-12">
+    <h1>Об'єднані громади {{ site.data.lang-uk.deck_region_in }}</h1>
+    <p>17 липня у 2020 році Верховна Рада України прийняла Постанову <a class="alert-link" href="http://w1.c1.rada.gov.ua/pls/zweb2/webproc4_2?id=&amp;pf3516=3650&amp;skl=10" target="_blank" rel="noopener">№ 3650</a> "Про утворення та ліквідацію районів".</p>
+    <p>Згідно з документом, тепер в Тернопільській області сім районів, перелік і склад яких - нижче:</p>
+  </div>
+  <div class="col-12">
+    <img src="{{ '/assets/images/map.jpg' | relative_url }}" class="img-fluid" alt="Пама {{ site.data.lang-uk.deck_region_in }}">
+  </div>
+  <div class="col-12">
+    <p><strong>{{ site.region }}:</strong>
+    {%- assign communities = site.html_pages | sort: "title" | where_exp: 'i', "i.community and i.community != ''" -%}
+    {%- for c in communities -%}
+      {%- if c.size > 0 -%}<p><strong><a href="{{ c.url }}">{%- if c.navtitle contains site.data.lang-uk.district -%}{{ c.navtitle }}{%- else -%}{{ c.navtitle | replace_first: 'м', 'М' }}{%- endif -%}</a></strong> - {{ c.community }}</p>{%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="dropdown-menu mt-n1 w-100 border-top-0 rounded-0" aria-labelledby="navDropRealEstate{{ slug | capitalize }}">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3{% if include.current contains '/city/' or include.current contains '/town/' %} row-cols-lg-5{% else %} row-cols-lg-4{% endif %} w-100 mt-mx-2 mt-md-3 mx-0 px-0">
+  {%- assign seconds = site.html_pages | sort: 'path' -%}
+  {%- for second in seconds -%}
+    {%- assign slug = second.url | split: '/' | last -%}
+    {%- assign current = second.url | remove: slug | remove: '//' | append: '/' -%}
+    {%- if include.current == current and second.navhide != 1 -%}
+    <div class="col mb-3">
+      {%- if page.url == second.url -%}
+        <span class="dropdown-item active">
+          {%- if second.navtitle -%}{{ second.navtitle }}{%- else -%}{{ second.title }}{%- endif -%}
+        </span>
+      {%- else -%}
+        <a href="{{ second.url }}" class="dropdown-item">
+          {%- if second.navtitle -%}{{ second.navtitle }}{%- else -%}{{ second.title }}{%- endif -%}
+        </a>
+      {%- endif -%}
+    </div>
+    {%- endif -%}
+  {%- endfor -%}
+  </div>
+  <div class="row w-100 mx-0 px-0">
+    <div class="col-auto ml-auto">
+      <a href="{{ include.current }}" class="dropdown-item">
+        {%- if include.title contains "містах" -%}
+          {{ include.title | truncate: 23 }}
+        {%- else -%}
+          {{ include.title }}
+        {%- endif -%}
+      </a>
+    </div>
+  </div>
+</div>

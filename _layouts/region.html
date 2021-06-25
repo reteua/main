@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<div class="row">
+  <div class="col-12">
+    <h1>
+      {{ page.title | replace_first: ' в ', ' у ' }}
+      {%- if page.community -%}
+      <button type="button" class="btn bg-transparent shadow-none border-0 dropdown-toggle dropdown-toggle-split" data-toggle="collapse" data-target="#collapseCommunity" aria-expanded="false" aria-controls="collapseCommunity">
+        <span class="visually-hidden">Об'єднана територіальна громада</span>
+      </button>
+      {%- endif -%}
+    </h1>
+    {%- if page.community -%}
+    <div class="collapse" id="collapseCommunity">
+      <div class="card card-body">
+        <p class="mb-0">{{ page.community }}</p>
+        <button type="button" class="close" data-toggle="collapse" data-target="#collapseCommunity" aria-expanded="false" aria-controls="collapseCommunity" aria-label="Close" title="{{ site.lang-uk.close }}">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    {%- endif -%}
+    {%- include subnavtab.html -%}
+  </div>
+  {%- assign isContent = content | strip_newlines -%}
+  {%- if isContent == "" -%}
+  {%- else -%}
+  <div class="col-12 mt-4">
+    {{ content }}
+  </div>
+  {%- endif -%}
+</div>

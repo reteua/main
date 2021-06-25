@@ -1,0 +1,101 @@
+{%- assign region = include.region -%}
+{%- include has-news.html cat=region -%}
+{%- include has-articles.html cat=region -%}
+<div class="card-text">
+  <div class="d-flex justify-content-between">
+    <div class="tabs flex-fill">
+      <nav>
+        <ul class="nav nav-tabs border-0" id="{{ region }}-realestate-tab" role="tablist">
+          {% comment %}
+          <li class="nav-item mt-2 mb-1 mr-2" role="presentation">
+            <span class="mr-1">Розділи{% if include.title contains 'місті' %} міста{% else %} району{% endif %}</span><span>→</span>
+          </li>
+          {% endcomment %}
+          <li class="nav-item d-none" role="presentation">
+            <a class="nav-link active" id="{{ region }}-recently-tab" data-toggle="tab" href="#{{ region }}-recently" role="tab" aria-controls="{{ region }}-recently" aria-selected="true">
+              <span>Розділи{% if include.title contains 'місті' %} міста{% else %} району{% endif %}</span>
+            </a>
+          </li>
+          {% comment %}
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="{{ region }}-recently1-tab" data-toggle="tab" href="#{{ region }}-recently1" role="tab" aria-controls="{{ region }}-recently1" aria-selected="true">
+              <span>Статті</span>
+            </a>
+          </li>
+          {% endcomment %}
+          {%- if hasNews == true -%}
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="{{ region }}-news-tab" data-toggle="tab" href="#{{ region }}-news" role="tab" aria-controls="{{ region }}-news" aria-selected="true">
+              <span>{{ site.data.lang-uk.news | capitalize }}</span>
+            </a>
+          </li>
+          {%- endif -%}
+          {%- if hasArticles == true -%}
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="{{ region }}-articles-tab" data-toggle="tab" href="#{{ region }}-articles" role="tab" aria-controls="{{ region }}-articles" aria-selected="false">
+              <span>{{ site.data.lang-uk.articles | capitalize }}</span>
+            </a>
+          </li>
+          {%- endif -%}
+        </ul>
+      </nav>
+    </div>
+    {%- include home/navsection.html region=region url=include.url -%}
+  </div>
+  <hr class="m-0">
+  <div class="tab-content" id="{{ region }}-realestate-content">
+    <div class="tab-pane pt-2 fade show active" id="{{ region }}-recently" role="tabpanel" aria-labelledby="{{ region }}-recently-tab">
+      {%- assign url = include.url -%}
+      {%- assign all = url | append: 'all.html' -%}
+      {%- assign ds = site.pages | sort: 'path' -%}
+      {%- for d in ds -%}
+        {%- assign l = d.url | split: '/' -%}
+        {%- if d.url contains url and d.url == all -%}
+          {%- if l.size == 4 -%}
+            {%- assign data = d.url | split: '/' | slice: 2, 4 | join: '/' | prepend: 'data/' -%}
+          {%- elsif l.size == 5 -%}
+            {%- assign data = d.url | split: '/' | slice: 3, 5 | join: '/' | prepend: 'data/' -%}
+          {%- endif -%}
+          {%- if data -%}
+            {%- include {{ data }} location=include.breadcrumb -%}
+            {%- for offer in offers limit: 3 -%}
+              <div class="card mb-2">
+                <div class="card-body p-2">{% include card/body.html %}</div>
+              </div>
+              {%- if forloop.last -%}
+                {%- assign total = offers | size -%}
+                {%- assign others = total | minus:3 -%}
+                {%- if others > 0 -%}
+                  <div class="row">
+                    <div class="col-auto ml-auto">
+                      <a class="btn btn-sm btn-primary" href="{{ d.url }}" title="Інші оголошення про продаж і оренду об'єктів нерухомості">
+                        {{ site.data.lang-uk.others }} <b>{{ others }}</b> {{ site.data.lang-uk.others_offers }}
+                      </a>
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
+            {%- else -%}
+              {% include none-advertisement.html %}
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {% comment %}
+    <div class="tab-pane pt-3 fade show" id="{{ region }}-recently1" role="tabpanel" aria-labelledby="{{ region }}-recently1-tab">
+      Нещодавно додані статті
+    </div>
+    {% endcomment %}
+    {%- if hasNews == true -%}
+    <div class="tab-pane pt-3 fade" id="{{ region }}-news" role="tabpanel" aria-labelledby="{{ region }}-news-tab">
+      {%- include home/news-last.html cat=region url=include.url num='3'-%}
+    </div>
+    {%- endif -%}
+    {%- if hasArticles == true -%}
+    <div class="tab-pane pt-3 fade" id="{{ region }}-articles" role="tabpanel" aria-labelledby="{{ region }}-articles-tab">
+      {%- include home/articles-last.html cat=region url=include.url num='3' -%}
+    </div>
+    {%- endif -%}
+  </div>
+</div>

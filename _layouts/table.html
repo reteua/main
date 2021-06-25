@@ -1,0 +1,82 @@
+---
+layout: default
+---
+{%- capture name -%}{%- include footer/contact.html legal="name" -%}{%- endcapture -%}
+{%- assign addtitle = name | split: " " | slice: 2, 4 | join: " " -%}
+<div class="row">
+  <div class="col-12">
+    <h1 class="h{%- if page.dir contains 'realtor' -%}3{%- else -%}2{%- endif -%}">
+      {% if page.url contains "/index.html" %}
+        {{ page.title | replace_first: 'Всі оголошення про ', 'Вся ' }}
+      {% elsif page.url contains "/all.html" %}
+        {{ page.title | replace_first: 'Всі оголошення про ', 'Вся ' }}
+      {% elsif page.url contains "/rent/" %}
+        {{ page.title | replace_first: 'Оголошення про оренду', 'Оренда' }} {{ site.data.lang-uk.re_in }} {{ addtitle }}
+      {% else %}
+        {{ page.title | replace_first: 'Оголошення про п', 'П' }} {{ site.data.lang-uk.re_in }} {{ addtitle }}
+      {% endif %}
+    </h1>
+    {%- assign isContent = content | strip_newlines -%}{%- if isContent == "" -%}{%- else -%}{{ content }}{%- endif -%}
+    {%- include nav-section.html -%}
+    <h2 class="h3">
+    {%- if page.url contains "rent" -%}
+      {{ site.data.lang-uk.re_rent_h2 }}
+    {%- elsif page.url contains "land" -%}
+      {{ site.data.lang-uk.re_land_h2 }}
+    {%- elsif page.url contains "house" -%}
+      {{ site.data.lang-uk.re_house_h2 }}
+    {%- elsif page.url contains "garage" -%}
+      {{ site.data.lang-uk.re_garage_h2 }}
+    {%- elsif page.url contains "commercial" -%}
+      {{ site.data.lang-uk.re_commercial_h2 }}
+    {%- elsif page.url contains "apartment" -%}
+      {{ site.data.lang-uk.re_apartment_h2 }}
+    {%- elsif page.url contains "all" -%}
+      {{ site.data.lang-uk.re_all_h2 }}
+    {%- endif -%}
+    </h2>
+    {%- assign slug = page.url | split: "/" | last -%}
+    {%- assign l = page.url | split: "/" -%}
+    {%- if page.url contains "all.html" -%}
+      {%- assign json = page.url | replace: "all.html", "data/all.json" -%}
+      {%- if l.size == 4 -%}
+        {%- assign data = page.url | split: "/" | slice: 2, 4 | join: "/" | prepend: "data/" -%}
+      {%- elsif l.size == 5 -%}
+        {%- assign data = page.url | split: "/" | slice: 3, 5 | join: "/" | prepend: "data/" -%}
+      {%- endif -%}
+    {%- else -%}
+      {%- assign json = here | append: "data/" | append: slug | append: ".json" -%}
+      {%- if l.size == 4 -%}
+        {%- assign data = page.url | split: "/" | slice: 2, 4 | join: "/" | prepend: "data/" | append: ".html" -%}
+      {%- elsif l.size == 5 -%}
+        {%- assign data = page.url | split: "/" | slice: 3, 5 | join: "/" | prepend: "data/" | append: ".html" -%}
+      {%- endif -%}
+    {%- endif -%}
+    {%- if data -%}
+      {%- include {{ data }} -%}
+      {%- if offers.size > 10 -%}
+        <div class="row">
+          <div class="col-12">
+            {%- if page.url contains "all.html" -%}
+              <div class="row mx-n2 row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 mt-2">
+                {%- include nav-section.html style="card" -%}
+              </div>
+            {%- else -%}
+              {%- include table/js.html -%}
+            {%- endif -%}
+          </div>
+        </div>
+      {%- else -%}
+        {%- for offer in offers -%}
+          <div class="row">
+            <div class="col-12">{%- include table/html.html -%}</div>
+          </div>
+        {%- else -%}
+          <div class="row">
+            <div class="col-md-6 offset-md-3">{%- include none-advertisement.html title=name -%}</div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>

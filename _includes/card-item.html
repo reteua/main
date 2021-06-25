@@ -1,0 +1,154 @@
+{%- capture navitemtitle -%}
+  {%- if slug == 'apartment' -%}
+    {{ one.navtitle }} і частини квартир та окремі кімнати у квартирі або гуртожитку
+  {%- elsif slug == 'commercial' -%}
+    Нежитлова і {{ one.navtitle | downcase }} для ведення підприємницької діяльності
+  {%- elsif slug == 'developer' -%}
+    Місцеві {{ one.navtitle | downcase }} нерухомості і новобудови та житлові комплекси
+  {%- elsif slug == 'garage' -%}
+    Окремі та спільні {{ one.navtitle | downcase }} і паркувальні місця над землею та під землею
+  {%- elsif slug == 'house' -%}
+    Великі і маленькі {{ one.navtitle | downcase }} їх окремі частини та відокремлені кімнати у будинку
+  {%- elsif slug == 'land' -%}
+    {{ one.navtitle }} для сільського господарства і земельні ділянки для будівництва
+  {%- elsif slug == 'realtor' -%}
+    Місцеві {{ one.navtitle | downcase }} з купівлі, продажу і оренди нерухомості
+  {%- elsif slug == 'agency' -%}
+    Місцеві {{ one.navtitle | downcase }} і агенства з купівлі, продажу і оренди нерухомості
+  {%- elsif slug == 'rent' -%}
+   Подобова і довгострокова {{ one.navtitle | downcase }} квартир, будинків, приміщень, земелі
+  {%- else -%}
+    {%- if one.navtitle -%}
+      {{ one.navtitle }}
+    {%- elsif one.breadcrumb -%}
+      {{ one.breadcrumb }}
+    {%- else -%}
+      {{ one.title }}
+    {%- endif -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture ncomplexes -%}
+  {%- if slug == 'developer' -%}
+    {%- assign objects = '' | split: '' -%}
+    {%- assign pages = site.html_pages -%}
+    {%- for ob in pages -%}
+      {%- if ob.dir contains thehere and ob.url contains 'object' and ob.layout == 'object' -%}
+        {%- unless ob.dir contains '/developer/builder/object/' -%}
+          {%- assign objects = objects | push: p -%}
+        {%- endunless -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {% comment %}
+    {%- assign demo_objects = site.region_slug | prepend: '/region/city/' | append: '/developer/builder/object/' -%}
+    {%- assign objects = site.html_pages | where_exp: "i", "i.dir contains thehere and i.url contains 'object' and i.layout == 'object'" -%}
+  {% endcomment %}
+    <span class="badge text-white p-0 m-1">
+      <span class="bg-primary py-1 px-2 rounded-left">Об'єктів</span><span class="py-1 px-2 bg-info rounded-right">{{ objects | size }}</span>
+    </span>
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture nsellers -%}
+  {%- if slug == 'developer' -%}
+    {%- assign developers = site.html_pages | where_exp: "i", "i.dir contains thehere and i.url contains 'developer' and i.layout == 'developer' and i.navtitle != 'Будівельник'" -%}
+    <span class="badge text-white p-0 m-1">
+      <span class="bg-primary py-1 px-2 rounded-left">Забудовників</span><span class="py-1 px-2 bg-info rounded-right">{{ developers | size }}</span>
+    </span>
+  {%- elsif slug == 'realtor' -%}
+    {%- assign realtors = site.html_pages | where_exp: "i", "i.dir contains thehere and i.url contains 'realtor' and i.layout == 'realtor' and i.navtitle != 'Агент Продавець'" -%}
+    <span class="badge text-white p-0 m-1">
+      <span class="bg-primary py-1 px-2 rounded-left">Aгентів і ріелторів</span><span class="py-1 px-2 bg-info rounded-right">{{ realtors | size }}</span>
+    </span>
+  {%- elsif slug == 'agency' -%}
+    {%- assign agencys = site.html_pages | where_exp: "i", "i.dir contains thehere and i.url contains 'agency' and i.layout == 'realtor' and i.navtitle != 'Агенція Продавець'" -%}
+    <span class="badge text-white p-0 m-1">
+      <span class="bg-primary py-1 px-2 rounded-left">Aгенцій і агенств</span><span class="py-1 px-2 bg-info rounded-right">{{ agencys | size }}</span>
+    </span>
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture records -%}
+  {%- if slug == 'apartment' -%}
+    {%- assign oapartment = offers | where_exp: "i", "i.rent != '1' and
+      i.type == site.data.lang-uk.re_apartment or i.type == site.data.lang-uk.re_apartment_part or i.type contains site.data.lang-uk.re_room
+    " -%}
+    {{ oapartment | size }}
+  {%- elsif slug == 'commercial' -%}
+    {%- assign ocommercial = offers | where_exp: "i", "i.rent != '1' and i.type contains site.data.lang-uk.re_roomsp" -%}
+    {{ ocommercial | size }}
+  {%- elsif slug == 'developer' -%}
+    {%- assign odeveloper = offers | where_exp: "i", "i.seller contains site.data.lang-uk.building_company" -%}
+    {{ odeveloper | size }}
+  {%- elsif slug == 'garage' -%}
+    {%- assign ogarage = offers | where_exp: "i", "i.rent != '1' and
+      i.type == site.data.lang-uk.re_garage or i.type contains site.data.lang-uk.re_place
+    " -%}
+    {{ ogarage | size }}
+  {%- elsif slug == 'house' -%}
+    {%- assign ohouse = offers | where_exp: "i", "i.rent != '1' and i.type contains site.data.lang-uk.re_house or i.type == site.data.lang-uk.re_house_part" -%}
+    {{ ohouse | size }}
+  {%- elsif slug == 'land' -%}
+    {%- assign oland = offers | where_exp: "i", "i.rent != '1' and i.type == site.data.lang-uk.re_land" -%}
+    {{ oland | size }}
+  {%- elsif slug == 'realtor' -%}
+    {%- assign orealtor = offers | where_exp: "i", "
+      i.seller contains site.data.lang-uk.agent or
+      i.seller contains site.data.lang-uk.realtor or
+      i.seller contains site.data.lang-uk.manager or
+      i.seller contains site.data.lang-uk.re_seller
+    " -%}
+    {{ orealtor | size }}
+  {%- elsif slug == 'agency' -%}
+    {%- assign oagency = offers | where_exp: "i", "
+      i.seller contains site.data.lang-uk.agency or
+      i.seller contains site.data.lang-uk.ahentstvo
+    " -%}
+    {{ oagency | size }}
+  {%- elsif slug == 'rent' -%}
+    {%- assign orent = offers | where_exp: "i", "i.rent == '1'" -%}
+    {{ orent | size }}
+  {%- else -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+
+{%- if page.url contains '/all.html' -%}
+  {%- if page.dir == current or one.url contains page.url and page.navhide != 1 -%}
+    {%- if one.url contains here and one.url contains 'all.html' and one.navhide != 1 -%}
+    {%- else -%}
+      {% assign number = number | plus: 1 %}
+      <div class="col px-2 mb-3">
+
+        <div class="card h-100 bg-{{ number }}">
+          <div class="card-body">
+            <h5 class="card-title"><a href="{{ one.url }}">{{ navitemtitle }}</a></h5>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 text-right px-2">
+            {%- if nsellers != '' -%}{{ nsellers }}{%- endif -%}
+            {%- if ncomplexes != '' -%}{{ ncomplexes }}{%- endif -%}
+            {%- if records != '0' -%}
+            <span class="badge text-white p-0 m-1">
+              <span class="bg-info py-1 px-2 rounded-left">{{ records }}</span><span class="py-1 px-2 bg-primary rounded-right">пропозицій</span>
+            </span>
+            {%- endif -%}
+          </div>
+        </div>
+
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+{%- else -%}
+
+  {%- if one.url contains here and one.url contains 'all.html' and one.navhide != 1 -%}
+  {%- else -%}
+    {%- if here == current and one.url contains here and one.navhide != 1 -%}
+    <div class="col px-2 mb-3">
+      <a href="{{ one.url }}" class="nav-link border-0">
+        <span>{{ navitemtitle }}</span>
+      </a>
+    </div>
+    {%- endif -%}
+  {%- endif -%}
+
+{%- endif -%}

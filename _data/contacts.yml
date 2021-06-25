@@ -1,0 +1,66 @@
+#
+# Region
+#
+- type: region
+  item: ternopilska
+  name: Нерухомість у Тернопільській області
+  address: 76018, м. Івано-Франківськ, вул.&nbsp;Січових&nbsp;Стрільців,&nbsp;56
+  phone_main: 380974949649
+  phone_hot: 380974949649
+  phone_fax: 380974949649
+  email: info@realestate.te.ua
+  www: https://www.realestate.te.ua/
+
+#
+# District
+#
+- type: district
+  item: ternopilkyy
+  name: Нерухомість у Тернопільському районі
+
+#
+# District / Town
+#
+- type: town
+  item: buchach
+  name: Нерухомість в місті Бучач
+
+#
+# Region / City
+#
+- type: city
+  item: ternopil
+  name: Нерухомість у місті Тернопіль
+
+#
+# Developers / Company
+#
+- type: developer
+  item: builder
+  name: Будівельна компанія "Будівельник"
+
+#
+# Realtor / Agent
+#
+- type: realtor
+  item: agent
+  name: Нерухомість від Агента Продавця
+  # address: 76018, м. Івано-Франківськ, вул.&nbsp;Січових&nbsp;Стрільців,&nbsp;56
+  # phone_main: 380504949649
+  # phone_hot: 380504949649
+  # phone_fax: 380504949649
+  # email: agent@realestate.in.ua
+  # www: https://www.realestate.in.ua/
+
+#
+# Agency / ahentsiya
+#
+- type: agency
+  item: ahentsiya
+  name: Нерухомість від Агенції Продавця
+  # address: 76018, м. Івано-Франківськ, вул.&nbsp;Січових&nbsp;Стрільців,&nbsp;56
+  # phone_main: 380504949649
+  # phone_hot: 380504949649
+  # phone_fax: 380504949649
+  # email: agency@realestate.in.ua
+  # www: https://www.realestate.in.ua/

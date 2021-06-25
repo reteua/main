@@ -1,0 +1,30 @@
+{%- assign jsonFile = json | remove_first: '/' -%}
+{%- capture fJson -%}{%- file_exists {{ jsonFile }} -%}{%- endcapture -%}
+{%- include map/page-exists.html -%}
+{%- if fJson == 'true' -%}
+<table
+  id="property"
+  data-locale="{{ site.lang | replace: '_', '-' }}"
+  data-toggle="table"
+  data-search="true"
+  data-search-accent-neutralise="true"
+  data-sort-class="table-active"
+  data-sortable="true"
+  data-detail-view="true"
+  data-detail-view-icon="false"
+  data-detail-view-by-click="true"
+  data-detail-formatter="jsDetailFormatter"
+  data-pagination="true"
+  data-mobile-responsive="true"
+  data-buttons-class="primary"
+  data-url="{{ json | absolute_url }}">
+  <thead class="thead-re">
+    <tr>
+      <th data-field="type" data-title="{{ site.data.lang-uk.re_offer }}" data-formatter="propertyFormatter">Property</th>
+      <th data-field="price" data-title="{{ site.data.lang-uk.re_cost | capitalize }}" data-formatter="priceFormatter" data-sortable="true" data-sorter="priceSorter">Price</th>
+    </tr>
+  </thead>
+</table>
+{%- else -%}
+<p>Ой! Щось тут не так...<p>
+{%- endif -%}

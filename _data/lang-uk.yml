@@ -1,0 +1,266 @@
+domain: realestate.te.ua
+main_city: ternopil
+main_region: ternopilska
+
+home: Головна
+ua: Нерухомість в Україні
+ukr: Українська нерухомість
+realestate: Нерухомість
+realestate_at: Нерухомість у
+
+m_za: за&nbsp;1&nbsp;м<sup>2</sup>
+m: м<sup>2</sup>
+
+deck_region_in:  Тернопільської області
+deck_region: Тернопільська
+news_list_empty: Новин поки що немає :(
+decisions_list_empty: Рішень поки що немає :(
+recently_added: Нещодавно додані
+articles: Статті
+news: Новини
+developers: Забудовники
+new_buildings: Новобудови
+new_building: Новобудова
+agency: Агенція
+ahentstvo: Агентство
+realtors: Ріелтори
+realtor: Ріелтор
+agents: Агенти
+agent: Агент
+manager: Менеджер
+building_company: Будівельна компанія
+city: місто
+district: район
+description_site: містить оголошення, новини, статті та іншу інформацію про нерухомість, яка будується, продається або передається в оренду і знаходиться в
+#
+# Property
+#
+re_sell: Продаю
+re_sell_land: Продаю землю
+re_sell_apartment: Продаю квартиру
+re_for_sale: Продається
+re_for_rent: Здається в оренду
+re_for_rentd: Здається в оренду на короткий термін
+re_for_rentnd: Здається в оренду на нетривалий термін
+re_surface: площею
+re_surface_total: загальною площею
+re_room: Кімната
+re_rooms: кімнат
+re_roomsp: приміщення
+re_roomsps: приміщень
+re_kimnaty: приміщення
+re_floor: Поверх
+re_house: Будинок
+re_garage: Гараж
+re_place: Місце
+re_store: Магазин
+re_house_part: Частина будинку
+re_house_partm: частину будинку
+re_house_not: Недобудований будинок
+re_fx: -х
+re_fno: -но
+re_in: в
+re_at: у
+re_m: м
+re_na: на
+re_mu: -му
+re_rc: ЖК
+re_ta: та
+re_po: по
+re_pro: про
+re_all: все
+re_vul: вул.
+re_tel: телефон
+re_logo: Логотип
+re_floorss: поверхів
+re_floorci: поверсі
+re_floors: поверховому будинку
+re_floorsh: поверховий будинок
+re_location: знаходиться
+re_address: за адресою
+re_price: вартість нерухомості
+re_pricel: вартість землі
+re_pricer: вартість оренди за місяць
+re_price_rent: Вартість оренди
+re_for_month: за місяць
+re_for_day: за місяць
+re_date: Нерухомість доступна для купівлі з
+re_dater: Оренда нерухомості доступна з
+re_datel: Земля доступна для купівлі з
+re_parking: Паркування
+re_surface_land: Площа землі
+re_map_on: Мапа нерухомості
+re_map: Мапа
+re_on_map: на мапі
+re_show_map: Показати мапу
+re_land: Земля
+re_apartment: Квартира
+re_apartment_part: Частина квартира
+re_nezhytlove: Нежитлове
+re_nezhytlovyy: Нежитловий
+re_no_apartment: Нежитлове приміщення
+re_no_apartments: Нежитлові приміщення
+re_cost: ціна
+re_offer: Власність
+re_price_sqmt: Вартість нерухомості
+re_price_sqmtl: Вартість землі
+re_price_sqmtr: Вартість оренди за 24 години (добу)
+re_seller: Продавець
+re_object: Житловий комплекс
+re_sellerr: Орендодавець
+re_phone: Контакти продавця
+re_phoner: Контакти орендодавця
+re_description: Додатково про нерухомість
+re_images: Фотознімки
+re_collapse: Згорнути
+re_more: Детальніше про нерухомість
+re_uah: ₴
+re_about_object: Про житловий комплекс
+re_select_section: Виберіть розділ
+re_page: Персональна сторінка нерухомості
+re_owner: Нерухомість від власника
+re_rent_h2: Передаються для оренди або здаються в оренду об'єкти нерухомості
+re_land_h2: Продаж землі та земельних ділянок різного призначення
+re_house_h2: Продаж будинків та частин будинків
+re_garage_h2: Продаж гаражів та місць для паркування автомобіля
+re_commercial_h2: Продаж нежитлових приміщень вільного призначення
+re_apartment_h2: Продаж квартир, частин квартири і кімнат
+re_all_h2: Перелік пропозицій купівлі, продажу та оренди нерухомого майна
+re_seller_add_navtitle: і ріелтори, які професійно замаються операціями з нерухомостю
+re_free_ads_in: Безкоштовні оголошення про нерухомість в
+re_from_developer: Новобудови від забудовника
+re_page_ads: Сторінка оголошення
+apartment_house_in: Квартири, будинки в
+#
+# Site
+#
+map_site: Мапа вебсайту
+no_email: немає пошти
+no_number: немає номера
+no_data: немає даних
+
+phone_main: Купити нерухомість
+phone_fax: Довідка
+phone_hot: Огляд нерухомості
+email: Електронна пошта
+www: Вебсайт
+
+sent_ads: Надіслати&nbsp;оголошення&nbsp;через
+phone_sent_ads: Телефон для передавання СМС-текстових і голосових оголошень про нерухомість
+phone_support: Підтримка
+phone_buy: Купити&nbsp;нерухомість
+phone_sell: Продати&nbsp;нерухомість
+phone_advert: Реклама на сайті
+phone_buy_sell: Купівля-продаж житла
+phone_add_ads: Додати&nbsp;оголошення
+phone_submit_ads: Подати оголошення
+
+flag_ua_city: Тернопіль
+flag_ua_net: Мережа Вебсайтів Нерухомості
+
+brand_header: Виберіть регіон нерухомості
+brand_content: Виберіть розділ нерухомості
+newly_realestate: Нещодавно
+#vsya: Вся
+vsya: Оголошення про
+nerukhomisti: нерухомості
+to_section: До розділу
+sections: Розділи
+other_regions: Інші регіони України
+other_regions_ua: Нерухомість в інших регіонах України
+others: Інші
+and: і
+info_refer: Інформаційна довідка
+others_offers: пропозицій
+realtor_offer: Мої пропозиції
+realtor_offer_text: <b>Прошу вибачень!</b> Я зараз займаюся питаннями підготовки та розміщенням своїх пропозицій.
+company_offer: Наші пропозиції
+company_offer_text: <b>Просимо вибачень!</b> Ми зараз займаємось питаннями підготовки та розміщенням наших пропозицій.
+others_section: пропозиції у розділі
+title_tab_commercial: Комерція
+title_tab_realtor: Ріелтори
+offers: Пропозиції
+actions: Акції
+news: Новини
+help: Допомога
+
+#
+# Date
+#
+m_01: січня
+m_02: лютого
+m_03: березня
+m_04: квітня
+m_05: травня
+m_06: червня
+m_07: липня
+m_08: серпня
+m_09: вересня
+m_10: жовтня
+m_11: листопада
+m_12: грудня
+roku: року
+close: Закрити
+previous: Попереднє
+next: Наступне
+you_are_here: Ти тут
+go_to: Перейти до сторінки
+up_there: Догори
+add_realestate: Додати нерухомість
+add_realestate_title: Розмістити оголошення про нерухомість на цьому вебсайті
+dear_visitor: Шановний, відвідувачу!
+regards_admin: З повагою, адміністрація мережі вебсайтів нерухомості в Україні.
+visitor_alert_text: Наразі вміст на сторінці відсутній, але ми працюємо над тим аби наповнити сторінку цікавим та корисним інформаційним вмістом.
+footer_text_trial: >
+  Вебсайт працює в тестовому режимі.
+  Якщо ви маєте зауваження або пропозиції, будь ласка, напишіть нам:
+footer_text_cc_1: Увесь вміст доступний за ліцензією
+footer_text_cc_2: Creative Commons Attribution 4.0 International license
+footer_text_cc_3: якщо не зазначено інше
+footer_developer: >
+  -
+
+#region
+ternopilska: Тернопільщини
+
+#city
+berezhany: Бережани
+kremenets: Кременець
+ternopil: Тернопіль
+chortkiv: Чортків
+
+#town
+borshchiv: Борщів
+buchach: Бучач
+zalishchyky: Залiщики
+zbarazh: Збараж
+zboriv: Зборів
+kopychyntsi: Копичинці
+lanivtsi: Ланівці
+monastyryska: Монастириська
+pidhaitsi: Підгайці
+pochaiv: Почаїв
+skalat: Скалат
+terebovlia: Теребовля
+khorostkiv: Хоростків
+shumsk: Шумськ
+
+#district
+kremenetskyy: Кременецький район
+ternopilskyy: Тернопільський район
+chortkivskyy: Чортківський район
+
+#
+# News
+#
+news: новини
+news_all: Усі новини
+news_back_list: Повернутися до списку новин
+news_list_empty: Новин поки що немає :(
+#
+# Decisions
+#
+articles: статті
+articles_all: Усі статті
+articles_back_list: Повернутися до списку статтей
+articles_list_empty: Cтаттей поки що немає :(

@@ -1,0 +1,19 @@
+{%- assign split = page.dir | split: "/" -%}
+{%- if split.size <= 2 -%}
+  {%- assign location = include.location -%}
+{%- elsif split.size <= 3 and page.dir contains 'city' or page.dir contains 'town' -%}
+  {%- assign location = include.location -%}
+{%- elsif split.size >= 3 and page.dir contains 'district' -%}
+  {%- include location.html -%}
+{%- else -%}
+  {%- include location.html -%}
+{%- endif -%}
+{%- capture oa -%}{%- for ot in site.data.owners -%}{{ ot.phone }}|{%- endfor -%}{%- endcapture -%}
+{%- assign owners = '' | split: '' -%}
+{%- for ot in site.data.owners -%}
+  {%- assign of = ot.phone | append: '|' -%}
+  {%- if oa contains of -%}
+    {%- assign owners = owners | push: ot -%}
+  {%- endif -%}
+  {%- assign oa = oa | remove: of -%}
+{%- endfor -%}
