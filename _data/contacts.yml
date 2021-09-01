@@ -43,6 +43,16 @@
 # Realtor / Agent
 #
 - type: realtor
+  item: kulyk
+  name: Нерухомість в столиці - Анатолій Кулик
+  # address: 76018, м. Івано-Франківськ, вул.&nbsp;Січових&nbsp;Стрільців,&nbsp;56
+  phone_main: 380672349221
+  phone_hot: 380672349221
+  phone_fax: 380672349221
+  email: manager@realestate.kyiv.ua
+  # www: https://www.realestate.if.ua/
+
+- type: realtor
   item: agent
   name: Нерухомість від Агента Продавця
   # address: 76018, м. Івано-Франківськ, вул.&nbsp;Січових&nbsp;Стрільців,&nbsp;56
