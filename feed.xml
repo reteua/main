@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Новини · Мережа Вебсайтів Нерухомості · Тернопільська область</title>
+    <description>Купівля, продаж і тривала та подобова оренда квартир, будинків, землі, комерційної нежитлової нерухомості в Тернопіль та області</description>
+    <link>https://www.realestate.te.ua/</link>
+    <atom:link href="https://www.realestate.te.ua/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 13 Mar 2022 15:21:42 +0200</pubDate>
+    <lastBuildDate>Sun, 13 Mar 2022 15:21:42 +0200</lastBuildDate>
+    <generator>Мережа Вебсайтів Нерухомості</generator>
+    
+      <item>
+        <title>Новий вебсайт про нерухомість в Київській області</title>
+        <description>Ура! Ми зробили це. Як кажуть у народі, другий пішов… :)
+
+Стартував наш другий вебсайт з серії вебсайтів про нерухомість в Україні.
+
+Вебс...</description>
+        <pubDate>Sun, 11 Apr 2021 00:00:00 +0300</pubDate>
+        <link>https://www.realestate.te.ua/news/2021/04/11/started-work-our-new-project-about-real-estate-in-ivano-frankivsk-region.html</link>
+        <guid isPermaLink="true">https://www.realestate.te.ua/news/2021/04/11/started-work-our-new-project-about-real-estate-in-ivano-frankivsk-region.html</guid>
+        
+        
+        <category>news</category>
+        
+      </item>
+    
+      <item>
+        <title>Доступна іпотека 7% для приватних осіб</title>
+        <description>Програма &quot;Доступна іпотека 7%&quot; з 01.03.2021 р. реалізується Фондом розвитку підприємництва за ініціативи Президента та Уряду України згід...</description>
+        <pubDate>Mon, 01 Mar 2021 00:00:00 +0200</pubDate>
+        <link>https://www.realestate.te.ua/news/2021/03/01/mortgages-for-individuals.html</link>
+        <guid isPermaLink="true">https://www.realestate.te.ua/news/2021/03/01/mortgages-for-individuals.html</guid>
+        
+        
+        <category>news</category>
+        
+      </item>
+    
+      <item>
+        <title>Mрії здійснюються</title>
+        <description>Перший в нашій країні 2021 року молодіжний житловий кредит видано цими днями на Луганщині. Отримала його родина внутрішньо переміщених ос...</description>
+        <pubDate>Wed, 13 Jan 2021 00:00:00 +0200</pubDate>
+        <link>https://www.realestate.te.ua/news/2021/01/13/dreams-come-true.html</link>
+        <guid isPermaLink="true">https://www.realestate.te.ua/news/2021/01/13/dreams-come-true.html</guid>
+        
+        
+        <category>news</category>
+        
+      </item>
+    
+  </channel>
+</rss>
