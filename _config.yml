@@ -1,6 +1,7 @@
 baseurl: ''
 domain: realestate.te.ua
 url: 'https://www.realestate.te.ua'
+addre: 'https://add.realestate.te.ua'
 
 encoding: UTF-8
 lang: uk_UA
@@ -10,8 +11,9 @@ region: Тернопільська область
 region_slug: ternopilska
 region_size: .89rem
 
-usd: 27.75
-eur: 33.73
+usd: 37.81
+eur: 41.35
+nbu: 36.5686
 
 title: Мережа Вебсайтів Нерухомості
 keywords: будинки, квартири, земля, житло, нежитлові приміщення, кімнати, оренда, частини квартири, частини будинку, гаражі, місця паркування, ділянки
