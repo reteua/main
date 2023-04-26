@@ -5,6 +5,7 @@ addre: 'https://add.realestate.te.ua'
 
 encoding: UTF-8
 lang: uk_UA
+language: Українська
 timezone: Europe/Helsinki
 country: Україна
 region: Тернопільська область

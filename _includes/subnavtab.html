@@ -1,6 +1,6 @@
 {%- assign lists = site.pages | sort: 'path' | reverse -%}
 {%- assign region = page.url | split: "/" | last -%}
-<nav class="navbar navbar-expand-lg navbar-light bg-white p-0" aria-labelledby="section-navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-white p-0">
   <div class="navbar-brand d-lg-none p-0">
     <span class="small">{{ site.data.lang-uk.brand_content }}</span>
     <span class="ml-1 float-right align-middle text-primary">→</span>
@@ -14,7 +14,7 @@
     {%- if isMap == 'true' -%}
     <ul class="navbar-nav nav nav-tabs border-0 mr-md-auto" id="realestate-map">
       <li class="nav-item">
-        <h5 class="m-lg-0">
+        <p class="m-lg-0 h5">
           {%- if page.url contains mapPage -%}
             <span class="badge badge-primary border-0" title="{{ site.data.lang-uk.re_map_on }}">
               <span>{{ site.data.lang-uk.re_map }}</span>
@@ -26,7 +26,7 @@
               <span class="d-lg-none">{{ site.data.lang-uk.nerukhomisti }}</span>
             </a>
           {%- endif -%}
-        </h5>
+        </p>
       </li>
     </ul>
     {%- endif -%}
@@ -75,11 +75,7 @@
             {%- if forloop.first -%}
               <ul class="row mx-n2 row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 list-unstyled">
             {%- endif -%}
-
-                <li class="col px-2 mb-3">
-                {%- include card.html offer=offer aid='0' -%}
-                </li>
-
+                <li class="col px-2 mb-3">{%- include card.html offer=offer aid='0' -%}</li>
             {%- if forloop.last -%}
               </ul>
               {%- assign total = offers | size -%}
@@ -133,7 +129,7 @@
                 {%- capture data -%}data/{{ region }}/{{ slug }}.html{%- endcapture -%}
                 {%- capture aid -%}2{%- increment counter -%}{%- endcapture -%}
                 {%- include {{ data }} -%}
-                {%- for offer in offers limit: 9 -%}
+                {%- for offer in offers limit:9 -%}
 
                   {%- if forloop.first -%}
                     <div class="row mx-n2 row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-2">
