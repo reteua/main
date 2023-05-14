@@ -17,8 +17,8 @@ navhide: 1
     <p><strong>{{ site.region }}:</strong>
     {%- assign communities = site.html_pages | sort: "title" | where_exp: 'i', "i.community and i.community != ''" -%}
     {%- for c in communities -%}
-      {% capture isMapPdf %}{% file_exists {{ c.url }}territorial_community_on_the_map.pdf %}{% endcapture %}
-      {%- if c.size > 0 -%}<p><strong><a href="{{ c.url }}">{%- if c.navtitle contains site.data.lang-uk.district -%}{{ c.navtitle }}{%- else -%}{{ c.navtitle | replace_first: 'м', 'М' }}{%- endif -%}</a></strong> - {{ c.community }}{%- if isMapPdf = 'true' -%} (<a href="{{ c.url }}territorial_community_on_the_map.pdf">переглянути мапу меж територіальної громади)</a>{%- endif -%}</p>{%- endif -%}
+      {%- capture isMapPdf -%}{%- file_exists {{ c.url }}territorial_community_on_the_map.pdf -%}{%- endcapture -%}
+      {%- if c.size > 0 -%}<p><strong><a href="{{ c.url }}">{%- if c.navtitle contains site.data.lang-uk.district -%}{{ c.navtitle }}{%- else -%}{{ c.navtitle | replace_first: 'м', 'М' }}{%- endif -%}</a></strong> - {{ c.community }}{%- if isMapPdf == 'true' -%} (<a href="{{ c.url }}territorial_community_on_the_map.pdf">переглянути мапу меж територіальної громади)</a>{%- endif -%}</p>{%- endif -%}
     {%- endfor -%}
   </div>
 </div>
