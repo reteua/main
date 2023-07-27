@@ -1,6 +1,6 @@
 {%- capture zoom -%}{%- if page.zoom and zoom != '' -%}{{ page.zoom }}{%- else -%}8{%- endif -%}{%- endcapture -%}
 {%- assign breadcrumb = page.breadcrumb | replace: "'", "&prime;" -%}
-{%- if data -%}
+{%- if data and page.url contains 'map.html' -%}
   {%- include {{ data }} -%}
   {%- if offers.size > 0 -%}
     <script>

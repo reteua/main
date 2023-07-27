@@ -1,8 +1,32 @@
 
 $(function () {
   "use strict";
+  var $tabpro = $('table#property');
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop)
+  });
+  let value = params.id;
+  if (value && value !== '') {
+    if (value.split('').length === 12) {
+      $tabpro.bootstrapTable('filterBy', { phone: value });
+    } else {
+      $tabpro.bootstrapTable('filterBy', { id: value });
+      if ($('table[data-detail-formatter="htmlDetailFormatter"]').length === 1) {
+        $tabpro.bootstrapTable('toggleDetailView', 0);
+        $('tbody tr[data-index="0"]').addClass('active');
+      } else {
+        $tabpro.on('post-body.bs.table', function () {
+          $tabpro.bootstrapTable('toggleDetailView', 0);
+          $('tbody tr[data-index="0"]').addClass('active');
+        })
+      }
+      $('#realestate-map').remove();
+      $('div.fixed-table-pagination').remove();
+      $('div[class="fixed-table-toolbar"]').replaceWith('<div class="float-right btn-group"><a class="my-2" href="' + location.protocol + '//' + location.host + location.pathname + '">' + 'Переглянути інші пропозиції' + '</a></div>');
+    }
+  }
   var expandedRow = null;
-  if ($('div.pswp').length < 1 && $('table#property').length > 0) {
+  if ($('div.pswp').length < 1 && $tabpro.length > 0) {
       var photoswipeTemplate = '\
           <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">\
               <div class="pswp__bg"></div>\
@@ -40,8 +64,8 @@ $(function () {
           </div>';
       $('body').append(photoswipeTemplate);
   }
-  $('table#property').on('expand-row.bs.table', function (event, index) { if (expandedRow !== index) { $('table').bootstrapTable('collapseRow', expandedRow); } expandedRow = index; });
-  $('table#property').on('click-row.bs.table', function (e, row, $element) { $($element).siblings().removeClass('active'); $($element).addClass('active'); });
+  $tabpro.on('expand-row.bs.table', function (event, index) { if (expandedRow !== index) { $('table').bootstrapTable('collapseRow', expandedRow); } expandedRow = index; });
+  $tabpro.on('click-row.bs.table', function (e, row, $element) { $($element).siblings().removeClass('active'); $($element).addClass('active'); });
 });
 
 var month = ["{{ site.data.lang-uk.m_01 }}","{{ site.data.lang-uk.m_02 }}","{{ site.data.lang-uk.m_03 }}","{{ site.data.lang-uk.m_04 }}","{{ site.data.lang-uk.m_05 }}","{{ site.data.lang-uk.m_06 }}","{{ site.data.lang-uk.m_07 }}","{{ site.data.lang-uk.m_08 }}","{{ site.data.lang-uk.m_09 }}","{{ site.data.lang-uk.m_10 }}","{{ site.data.lang-uk.m_11 }}","{{ site.data.lang-uk.m_12 }}"], usd = {{ site.usd }}, eur = {{ site.eur }}, nbu = {{ site.nbu }}, items = [], html = [];
@@ -172,7 +196,7 @@ function jsDetailFormatter(index, row, $detail) {
   var reFooter = function() {
 
     if (row.seller && row.seller !== '') {
-			html.push('<span class="col px-1"><dl><dt>' + reSelleOrSeller + '</dt><dd>' + row.seller.replace('{{ site.data.lang-uk.re_seller }} ','') + '</dd></dl></span>'),
+			html.push('<span class="col px-1"><dl><dt>' + reSelleOrSeller + '</dt><dd><a href="{{ site.url }}/region/{{ site.region_slug }}/?id=' + row.phone + '" title="{{ site.data.lang-uk.offers }}">' + row.seller.replace('{{ site.data.lang-uk.re_seller }} ','') + '</a></dd></dl></span>'),
 			html.push('<span class="col px-1"><dl><dt>' + rePhoneOrPhoner + '</dt><dd><a href="tel:+' + row.phone + '">+' + row.phone.substr(0, 2) + '&nbsp;' + row.phone.substr(2, 3) + '&nbsp;' + row.phone.substr(5, 3) + '&nbsp;' + row.phone.substr(8, 2) + '&nbsp;' + row.phone.substr(10, 2) + '</a><i class="d-none">' + row.id + '</i></dd></dl></span>'),
 			html.push('</span>')
 		}
@@ -308,7 +332,7 @@ function htmlDetailFormatter(index, row, $detail) {
       html.push('<span class="col px-1"><dl><dt>' + reDateOrDater + '</dt><dd>' + d.getDate() + '&nbsp;' + month[n] + '&nbsp;' + d.getFullYear() + '&nbsp;{{ site.data.lang-uk.roku }}</dd></dl></span>')
     }
     if (row.phone && row.phone !== '') {
-      html.push('<span class="col px-1"><dl><dt>' + reSelleOrSeller + '</dt><dd>' + row.seller.replace('{{ site.data.lang-uk.re_seller }} ','') + '</dd></dl></span>'),
+      html.push('<span class="col px-1"><dl><dt>' + reSelleOrSeller + '</dt><dd><a href="{{ site.url }}/region/{{ site.region_slug }}/?id=' + row.phone + '" title="{{ site.data.lang-uk.offers }}">' + row.seller.replace('{{ site.data.lang-uk.re_seller }} ','') + '</a></dd></dl></span>'),
       html.push('<span class="col px-1"><dl><dt>' + rePhoneOrPhoner + '</dt><dd><a href="tel:+' + row.phone + '">+' + row.phone.substr(0, 2) + '&nbsp;' + row.phone.substr(2, 3) + '&nbsp;' + row.phone.substr(5, 3) + '&nbsp;' + row.phone.substr(8, 2) + '&nbsp;' + row.phone.substr(10, 2) + '</a><i class="d-none">' + row.id + '</i></dd></dl></span>'),
       html.push('</span>')
     }

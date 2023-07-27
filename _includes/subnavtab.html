@@ -1,5 +1,5 @@
 {%- assign lists = site.pages | sort: 'path' | reverse -%}
-{%- assign region = page.url | split: "/" | last -%}
+{%- assign region = page.dir | split: "/" | last -%}
 <nav class="navbar navbar-expand-lg navbar-light bg-white p-0">
   <div class="navbar-brand d-lg-none p-0">
     <span class="small">{{ site.data.lang-uk.brand_content }}</span>
@@ -16,10 +16,7 @@
       <li class="nav-item">
         <p class="m-lg-0 h5">
           {%- if page.url contains mapPage -%}
-            <span class="badge badge-primary border-0" title="{{ site.data.lang-uk.re_map_on }}">
-              <span>{{ site.data.lang-uk.re_map }}</span>
-              <span class="d-lg-none">{{ site.data.lang-uk.nerukhomisti }}</span>
-            </span>
+            &nbsp;
           {%- else -%}
             <a class="badge badge-primary border-0" href="/{{ mapPage }}" title="{{ site.data.lang-uk.re_map_on }}">
               <span>{{ site.data.lang-uk.re_map }}</span>
@@ -65,7 +62,7 @@
   <div class="tab-pane fade show active" id="newly" role="tabpanel" aria-labelledby="newly-tab">
     <div class="row">
       <div class="col-12">
-        <h2 class="mb-3">{{ site.data.lang-uk.vsya }} {{ page.title | replace_first: 'Нерухомість в', 'нерухомість у' }}</h2>
+        <h2 class="mb-3 mt-2">{{ site.data.lang-uk.vsya }} {{ page.title | replace_first: 'Нерухомість в', 'нерухомість у' }}</h2>
         {%- capture data -%}data/{{ region }}/all.html{%- endcapture -%}
         {%- include {{ data }} -%}
         {%- if offers.size > 0 -%}
@@ -81,22 +78,22 @@
               {%- assign total = offers | size -%}
               {%- assign others = total | minus:9 -%}
               {%- if others > 0 -%}
-                <div class="row">
-                  <div class="col-auto ml-auto">
-                    <a class="btn btn-sm btn-primary" href="{{ page.dir | append: 'all' }}">
-                      {{ site.data.lang-uk.others }} <strong>{{ others }}</strong> {{ site.data.lang-uk.others_offers }}
-                    </a>
-                  </div>
+                <div class="float-right btn-group">
+                  <a class="btn btn-sm btn-primary" href="{{ page.dir | append: 'all' }}">
+                    {{ site.data.lang-uk.others }} <strong>{{ others }}</strong> {{ site.data.lang-uk.others_offers }}
+                  </a>
                 </div>
               {%- endif -%}
             {%- endif -%}
 
           {%- else -%}
+
             <div class="row">
               <div class="col-md-6 offset-md-3">
                 {%- include none-advertisement.html title=page.title -%}
               </div>
             </div>
+
           {%- endfor -%}
 
         {%- else -%}
@@ -121,11 +118,11 @@
             <div class="col-12">
               {%- assign addtitle = page.title | split: " " | slice: 1, 4 | join: " " -%}
               {%- if slug == 'realtor' or slug == 'agency' or slug == 'developer' -%}
-                <h2 class="mb-3">{{ title }} {{ site.data.lang-uk.nerukhomisti }} {{ addtitle }} </h2>
+                <h2 class="mb-3 mt-2">{{ title }} {{ site.data.lang-uk.nerukhomisti }} {{ addtitle }} </h2>
                 {%- assign dir = page.dir | append: slug | append: '/' -%}
                 {%- include subpages.html dir=dir page=slug title=title -%}
               {%- else -%}
-                <h2 class="mb-3">{{ title }} {{ addtitle }}</h2>
+                <h2 class="mb-3 mt-2">{{ title }} {{ addtitle }}</h2>
                 {%- capture data -%}data/{{ region }}/{{ slug }}.html{%- endcapture -%}
                 {%- capture aid -%}2{%- increment counter -%}{%- endcapture -%}
                 {%- include {{ data }} -%}
@@ -144,12 +141,10 @@
                     {%- assign total = offers | size -%}
                     {%- assign others = total | minus:9 -%}
                     {%- if others > 0 -%}
-                      <div class="row">
-                        <div class="col-auto ml-auto">
-                          <a class="btn btn-sm btn-primary" href="{{ content.url }}">
-                            {{ site.data.lang-uk.others }} <strong>{{ others }}</strong> {{ site.data.lang-uk.others_section }} {{ content.navtitle }}
-                          </a>
-                        </div>
+                      <div class="float-right btn-group">
+                        <a class="btn btn-sm btn-primary" href="{{ content.url }}">
+                          {{ site.data.lang-uk.others }} <strong>{{ others }}</strong> {{ site.data.lang-uk.others_section }} {{ content.navtitle }}
+                        </a>
                       </div>
                     {%- endif -%}
                   {%- endif -%}
