@@ -13,7 +13,7 @@
       <div id="{{ slug }}" class="col-12">
         <h2 class="mb-4">
           <a href="{{ one.url }}">{%- if one.title -%}{{ one.title }}{%- else -%}{{ one.navtitle }}{%- endif -%}</a>
-          {% if one.url contains "/district/" %} {{ site.data.lang-uk.deck_region_in }}{% endif %}
+          {% if one.url contains "/district/" %} {{ site.data.area.deck_region_in }}{% endif %}
         </h2>
       </div>
       {%- endcomment -%}
@@ -22,7 +22,7 @@
           <a href="{{ one.url }}" title="Безкоштовні оголошення про {{ one.title | downcase }}">
             {%- if one.title -%}{{ one.title }}{%- else -%}{{ one.navtitle }}{%- endif -%}
           </a>
-          {% if one.url contains "/district/" %} {{ site.data.lang-uk.deck_region_in }}{% endif %}
+          {% if one.url contains "/district/" %} {{ site.data.area.deck_region_in }}{% endif %}
         </h2>
         {%- include home/region.html current=one.url -%}
       </div>
@@ -40,7 +40,7 @@
                 <a href="{{ two.url }}" title="Безкоштовні оголошення про {{ two.title | downcase }}">
                   {%- if two.title -%}{{ two.title }}{%- else -%}{{ two.navtitle }}{%- endif -%}
                 </a>
-                {% if two.url contains '/region/city/' or two.url contains '/district/town/' %} {{ site.data.lang-uk.deck_region_in }}{% endif %}
+                {% if two.url contains '/region/city/' or two.url contains '/district/town/' %} {{ site.data.area.deck_region_in }}{% endif %}
               </h2>
             </div>
             {%- endcomment -%}
@@ -49,7 +49,7 @@
                 <a href="{{ two.url }}" title="Безкоштовні оголошення про {{ two.title | downcase }}">
                   {%- if two.title -%}{{ two.title }}{%- else -%}{{ two.navtitle }}{%- endif -%}
                 </a>
-                {% if two.url contains '/region/city/' or two.url contains '/district/town/' %} {{ site.data.lang-uk.deck_region_in }}{% endif %}
+                {% if two.url contains '/region/city/' or two.url contains '/district/town/' %} {{ site.data.area.deck_region_in }}{% endif %}
               </h2>
               {%- include home/region.html current=two.url -%}
             </div>
@@ -60,7 +60,7 @@
     {%- endif -%}
   {%- endfor -%}
   <div class="col-12">
-    <h2 class="mb-4">Інші <a href="/amalgamated-hromades.html" title="Безкоштовні оголошення про продаж нерухомості місцевих громад">територіальні об'єднані громади</a> {{ site.data.lang-uk.flag_ua_city }}ської області</h2>
-    <p class="small">....</p>
+    <h2 class="mb-4">Інші <a href="/amalgamated-hromades.html" title="Безкоштовні оголошення про продаж нерухомості місцевих громад">територіальні об'єднані громади</a> Київської області</h2>
+    <p class="small">Нерухомість на територіях Білоцерківської міської, Володарської селищної, Гребінківської селищної, Ковалівської сільської, Маловільшанської сільської, Медвинська сільської, Рокитнянської селищної, Сквирської міської, Ставищенської селищної, Таращанської міської, Тетіївської міської, Узинської міської, Фурсівської сільської, Бориспільської міської, Вороньківської сільської, Гірської сільської, Дівичківської сільської, Золочівської сільської, Переяславської міської, Пристоличної сільської, Студениківської сільської, Ташанської сільської, Циблівської сільської, Яготинської міської, Білогородської сільської, Бородянської селищної, Борщагівської сільської, Бучанської міської, Вишневої міської, Гостомельської селищної, Дмитрівської сільської, Ірпінської міської, Коцюбинської селищної, Макарівської селищної, Немішаївської селищної, Пісківської селищної, Вишгородської міської, Димерської селищної, Іванківської селищної, Петрівської сільської, Пірнівської сільської, Поліської селищної, Славутицької міської, Бишівської сільської, Боярської міської, Гатненської сільської, Глевахівської селищної, Калинівської селищної, Кожанської селищної, Томашівської сільської, Фастівської міської, Чабанівської селищної, Баришівської селищної, Березанської міської, Броварської міської, Великодимерської селищної, Зазимської сільської, Згурівської селищної, Калинівської селищної, Калитянської селищної, Богуславської міської, Васильківської міської, Кагарлицької міської, Козинської селищної, Миронівської міської, Обухівської міської, Ржищівської міської, Української міської, Феодосіївської сільської територіальних громад без врахування території зони відчуження.</p>
   </div>
 </div>
