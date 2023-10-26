@@ -7,9 +7,9 @@
       <nav>
         <ul class="nav nav-tabs border-0" id="{{ region }}-realestate-tab" role="tablist">
           {% comment %}
-          <li class="nav-item mt-2 mb-1 mr-2" role="presentation">
-            <span class="mr-1">Розділи{% if include.title contains 'місті' %} міста{% else %} району{% endif %}</span><span>→</span>
-          </li>
+            <li class="nav-item mt-2 mb-1 mr-2" role="presentation">
+              <span class="mr-1">Розділи{% if include.title contains 'місті' %} міста{% else %} району{% endif %}</span><span>→</span>
+            </li>
           {% endcomment %}
           <li class="nav-item d-none" role="presentation">
             <a class="nav-link active" id="{{ region }}-recently-tab" data-toggle="tab" href="#{{ region }}-recently" role="tab" aria-controls="{{ region }}-recently" aria-selected="true">
@@ -17,11 +17,11 @@
             </a>
           </li>
           {% comment %}
-          <li class="nav-item" role="presentation">
-            <a class="nav-link" id="{{ region }}-recently1-tab" data-toggle="tab" href="#{{ region }}-recently1" role="tab" aria-controls="{{ region }}-recently1" aria-selected="true">
-              <span>Статті</span>
-            </a>
-          </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="{{ region }}-recently1-tab" data-toggle="tab" href="#{{ region }}-recently1" role="tab" aria-controls="{{ region }}-recently1" aria-selected="true">
+                <span>Статті</span>
+              </a>
+            </li>
           {% endcomment %}
           {%- if hasNews == true -%}
           <li class="nav-item" role="presentation">
@@ -98,9 +98,9 @@
       {%- endfor -%}
     </div>
     {% comment %}
-    <div class="tab-pane pt-3 fade show" id="{{ region }}-recently1" role="tabpanel" aria-labelledby="{{ region }}-recently1-tab">
-      Нещодавно додані статті
-    </div>
+      <div class="tab-pane pt-3 fade show" id="{{ region }}-recently1" role="tabpanel" aria-labelledby="{{ region }}-recently1-tab">
+        Нещодавно додані статті
+      </div>
     {% endcomment %}
     {%- if hasNews == true -%}
     <div class="tab-pane pt-3 fade" id="{{ region }}-news" role="tabpanel" aria-labelledby="{{ region }}-news-tab">
