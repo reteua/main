@@ -3,7 +3,7 @@ main_city: ternopil
 main_region: ternopilska
 
 flag_ua_city: Тернопіль
-deck_region_in:  Тернопільської області
+deck_region_in: Тернопільської області
 deck_region: Тернопільська
 
 local_communities: >

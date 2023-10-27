@@ -34,9 +34,11 @@
         <div class="bg-light pb-3 px-0 border-0 card card-body">
           <div class="row">
             <div class="col-md-6 offset-md-3">
-              <select id="areaSelect">
+              <label for="areaSelect" class="sr-only">Пошук місцевості:</label>
+              <select name="areas" id="areaSelect" aria-label="Виберіть назву місцевості чи тип нерухомості">
                 <option value="">Введіть назву місцевості чи тип нерухомості</option>
                 {%- include select/tags.html -%}
+                <option value="/region/{{ site.region_slug }}/">{{ site.region }}</option>
                 {%- include select/regions.html -%}
               </select>
             </div>
