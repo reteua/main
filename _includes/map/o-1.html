@@ -4,7 +4,7 @@
     {%- assign slug = 2.url | split: "/" | last -%}
     {%- assign current = 2.url | remove: slug | remove: "//" | append: "/" -%}
     {%- if include.current == current and 2.navhide != 1 and 2.title != '' -%}
-      <option value="{{ 2.url | prepend: site.url }}">{{ include.navtitle }} #1 - {{ 2.navtitle }}</option>
+      <option value="{{ 2.url | prepend: site.url }}">{{ 2.navtitle }}</option>
       {%- include map/o-2.html current=2.url navtitle=2.navtitle -%}
     {%- endif -%}
   {%- endfor -%}
