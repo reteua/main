@@ -1,0 +1,3 @@
+{%- if site.data.zt -%}
+{%- for option in site.data.zt -%}<option value="{{ option.url }}">{{ option.title }}</option>{%- endfor -%}
+{%- endif -%}
