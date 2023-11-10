@@ -36,7 +36,7 @@
             <div class="col-md-6 offset-md-3">
               <label for="areaSelect" class="sr-only">Пошук місцевості:</label>
               <select name="areas" id="areaSelect" aria-label="Виберіть назву місцевості чи тип нерухомості">
-                <option value="">Введіть назву місцевості чи тип нерухомості</option>
+                <option value="">Введіть назву міста або району чи області</option>
                 {%- for r in site.data.realestate -%}
                   {%- if r.url == site.url and r.slug and r.slug != "" -%}
                     {%- include select/options/0.html -%}
@@ -46,12 +46,6 @@
                     <option value="{{ r.url }}">{{ r.small }}</option>
                   {%- endif -%}
                 {%- endfor -%}
-                {%- comment -%}
-                {% comment %}
-                  {%- include select/tags.html -%}
-                  <option value="/region/{{ site.region_slug }}/">{{ site.region }}</option>
-                  {%- include select/regions.html -%}
-                {% endcomment %}
               </select>
             </div>
           </div>
