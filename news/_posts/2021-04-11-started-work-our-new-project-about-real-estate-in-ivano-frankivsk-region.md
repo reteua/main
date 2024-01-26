@@ -2,6 +2,7 @@
 title: Новий вебсайт про нерухомість в Київській області
 date: 2021-04-11
 #category: Кредит, Держава, Молодь
+layout: post
 source:
   title: Мережа Вебсайтів Нерухомості в Україні
   url: https://www.realestate.net.ua

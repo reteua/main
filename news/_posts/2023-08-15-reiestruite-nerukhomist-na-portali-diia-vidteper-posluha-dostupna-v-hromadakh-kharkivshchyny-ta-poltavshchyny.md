@@ -1,6 +1,7 @@
 ---
 title: Реєструйте нерухомість на порталі Дія відтепер послуга доступна в громадах Харківщини та Полтавщини
 date: 2023-08-15
+layout: post
 source:
   title: Кабінет Міністрів України
   url: https://www.kmu.gov.ua/news/reiestruite-nerukhomist-na-portali-diia-vidteper-posluha-dostupna-v-hromadakh-kharkivshchyny-ta-poltavshchyny

@@ -1,6 +1,7 @@
 ---
 title: Продаж та оренда майна державних акціонерних товариств відтепер на онлайн-аукціонах Прозорро.Продажі, — рішення Уряду
 date: 2023-09-28
+layout: post
 source:
   title: Кабінет Міністрів України
   url: https://www.kmu.gov.ua/news/prodazh-ta-orenda-maina-derzhavnykh-aktsionernykh-tovarystv-vidteper-na-onlain-auktsionakh-prozorroprodazhi-rishennia-uriadu
