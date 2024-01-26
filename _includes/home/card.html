@@ -23,20 +23,22 @@
               </a>
             </li>
           {% endcomment %}
-          {%- if hasNews == true -%}
-          <li class="nav-item" role="presentation">
-            <a class="nav-link" id="{{ region }}-news-tab" data-toggle="tab" href="#{{ region }}-news" role="tab" aria-controls="{{ region }}-news" aria-selected="true">
-              <span>{{ site.data.lang-uk.news | capitalize }}</span>
-            </a>
-          </li>
-          {%- endif -%}
-          {%- if hasArticles == true -%}
-          <li class="nav-item" role="presentation">
-            <a class="nav-link" id="{{ region }}-articles-tab" data-toggle="tab" href="#{{ region }}-articles" role="tab" aria-controls="{{ region }}-articles" aria-selected="false">
-              <span>{{ site.data.lang-uk.articles | capitalize }}</span>
-            </a>
-          </li>
-          {%- endif -%}
+          {% comment %}
+            {%- if hasNews == true -%}
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="{{ region }}-news-tab" data-toggle="tab" href="#{{ region }}-news" role="tab" aria-controls="{{ region }}-news" aria-selected="true">
+                <span>{{ site.data.uk.news | capitalize }}</span>
+              </a>
+            </li>
+            {%- endif -%}
+            {%- if hasArticles == true -%}
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="{{ region }}-articles-tab" data-toggle="tab" href="#{{ region }}-articles" role="tab" aria-controls="{{ region }}-articles" aria-selected="false">
+                <span>{{ site.data.uk.articles | capitalize }}</span>
+              </a>
+            </li>
+            {%- endif -%}
+          {% endcomment %}
         </ul>
       </nav>
     </div>
@@ -74,7 +76,7 @@
               {%- endcapture -%}
               <li class="card mb-2">
                 <article class="card-body p-2" role="presentation">
-                  <h4 class="sr-only m-0 p-0 h6"><data value="{{ offer.id }}">{% if offer.rent == '1' %}{{ site.data.lang-uk.re_object_rent }}{% else %}{{ site.data.lang-uk.re_object_sell }}{% endif %} - {{ offerType }}, {{ site.data.lang-uk.re_cost }} {{ offer.price }}</data></h4>
+                  <h4 class="sr-only m-0 p-0 h6"><data value="{{ offer.id }}">{% if offer.rent == '1' %}{{ site.data.uk.re_object_rent }}{% else %}{{ site.data.uk.re_object_sell }}{% endif %} - {{ offerType }}, {{ site.data.uk.re_cost }} {{ offer.price }}</data></h4>
                   {% include card/body.html %}
                 </article>
               </li>
@@ -85,13 +87,15 @@
                 {%- if others > 0 -%}
                   <div class="float-right btn-group">
                     <a class="btn btn-sm btn-primary" href="{{ d.url }}" title="Інші оголошення про продаж і оренду об'єктів нерухомості">
-                      {{ site.data.lang-uk.others }} <b>{{ others }}</b> {{ site.data.lang-uk.others_offers }}
+                      {{ site.data.uk.others }} <b>{{ others }}</b> {{ site.data.uk.others_offers }}
                     </a>
                   </div>
                 {%- endif -%}
               {%- endif -%}
             {%- else -%}
-              {% include none-advertisement.html %}
+              <li class="alert alert-success mb-0">
+                {% include none-advertisement.html %}
+              </li>
             {%- endfor -%}
           {%- endif -%}
         {%- endif -%}
@@ -104,12 +108,12 @@
     {% endcomment %}
     {%- if hasNews == true -%}
     <div class="tab-pane pt-3 fade" id="{{ region }}-news" role="tabpanel" aria-labelledby="{{ region }}-news-tab">
-      {%- include home/news-last.html cat=region url=include.url num='3'-%}
+      {% comment %}{%- include home/news-last.html cat=region url=include.url num='3'-%}{% endcomment %}
     </div>
     {%- endif -%}
     {%- if hasArticles == true -%}
     <div class="tab-pane pt-3 fade" id="{{ region }}-articles" role="tabpanel" aria-labelledby="{{ region }}-articles-tab">
-      {%- include home/articles-last.html cat=region url=include.url num='3' -%}
+      {% comment %}{%- include home/articles-last.html cat=region url=include.url num='3' -%}{% endcomment %}
     </div>
     {%- endif -%}
   </div>

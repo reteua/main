@@ -11,7 +11,7 @@ table: 2
 <div class="row">
   <div class="col-12">
 
-    <h1 class="h2">Продаж і оренда нерухомості у Тернопільській області</h1>
+    <h1 class="h2">Продаж і оренда нерухомості у {{ site.data.uk.deck_region_at }} області</h1>
 
     <div class="row justify-content-between">
       {%- assign mapPage = page.dir | append: 'map.html' | remove_first: '/' -%}
@@ -22,14 +22,14 @@ table: 2
           <li class="nav-item">
             <h5 class="m-lg-0">
               {%- if page.url contains mapPage -%}
-                <span class="badge badge-primary border-0" title="{{ site.data.lang-uk.re_map_on }}">
-                  <span>{{ site.data.lang-uk.re_map }}</span>
-                  <span class="d-lg-none">{{ site.data.lang-uk.nerukhomisti }}</span>
+                <span class="badge badge-primary border-0" title="{{ site.data.uk.re_map_on }}">
+                  <span>{{ site.data.uk.re_map }}</span>
+                  <span class="d-lg-none">{{ site.data.uk.nerukhomisti }}</span>
                 </span>
               {%- else -%}
-                <a class="badge badge-primary border-0" href="/{{ mapPage }}" title="{{ site.data.lang-uk.re_map_on }}">
-                  <span>{{ site.data.lang-uk.re_map }}</span>
-                  <span class="d-lg-none">{{ site.data.lang-uk.nerukhomisti }}</span>
+                <a class="badge badge-primary border-0" href="/{{ mapPage }}" title="{{ site.data.uk.re_map_on }}">
+                  <span>{{ site.data.uk.re_map }}</span>
+                  <span class="d-lg-none">{{ site.data.uk.nerukhomisti }}</span>
                 </a>
               {%- endif -%}
             </h5>
@@ -54,7 +54,7 @@ table: 2
 
     {%- include thanks-please.html -%}
 
-    <h2 class="h3">Всі оголошення про продаж нерухомості у Тернопільській області</h2>
+    <h2 class="h3">Всі оголошення про продаж нерухомості у {{ site.data.uk.deck_region_at }} області</h2>
 
     <div class="row">
       <div class="col-12">
@@ -77,8 +77,8 @@ table: 2
           data-url="data/all.json">
           <thead class="thead-re">
             <tr>
-              <th data-field="type" data-title="{{ site.data.lang-uk.re_offer }}" data-formatter="propertyFormatter">Property</th>
-              <th data-field="price" data-title="{{ site.data.lang-uk.re_cost | capitalize }}" data-formatter="priceFormatter" data-sortable="true" data-sorter="priceSorter">Price</th>
+              <th data-field="type" data-title="{{ site.data.uk.re_offer }}" data-formatter="propertyFormatter">Property</th>
+              <th data-field="price" data-title="{{ site.data.uk.re_cost | capitalize }}" data-formatter="priceFormatter" data-sortable="true" data-sorter="priceSorter">Price</th>
             </tr>
           </thead>
         </table>

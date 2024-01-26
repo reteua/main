@@ -152,4 +152,10 @@ main .leaflet-menu {
   }
 }
 
+.properties dd { padding-left: 10px; }
+.properties dd .btn:focus, .btn.focus { box-shadow: none; }
+
+.page-item .page-pre { padding-top: 0.45rem }
+.page-item .page-next { padding-top: 0.45rem }
+
 // .leaflet-menu-contents h2 { margin-top: 8px; }
