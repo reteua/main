@@ -52,7 +52,7 @@
           </div>
         {%- else -%}
           <div class="col-auto">
-            <a class="navbar-toggler align-middle d-inline-block border-0 shadow-none collapsed" href="#more" data-target=".collapse0{{ offer.id }}{{ include.aid }}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="more-0{{ offer.id }}{{ include.aid }}">
+            <a class="navbar-toggler align-middle d-inline-block border-0 shadow-none collapsed" id="more-0{{ offer.id }}{{ include.aid }}" href="#more" data-target=".collapse0{{ offer.id }}{{ include.aid }}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="more-0{{ offer.id }}{{ include.aid }}">
               <span class="sr-only">{{ site.data.uk.re_description }}:</span>
               <span class="d-block h-100 w-100" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="{{ site.data.uk.re_more }}">
                 <span class="navbar-toggler-icon"></span>
@@ -68,11 +68,11 @@
         {%- include card/additionally.html -%}
         <dd class="mb-0 text-right">
           {%- if isImage != '' -%}
-          <a class="card-link" data-toggle="collapse" data-target=".collapse1{{ offer.id }}{{ include.aid }}" href="#photo" role="button" aria-expanded="false" aria-controls="photo-1{{ offer.id }}{{ include.aid }}">
+          <a class="card-link" id="photo-1{{ offer.id }}{{ include.aid }}" data-toggle="collapse" data-target=".collapse1{{ offer.id }}{{ include.aid }}" href="#photo" role="button" aria-expanded="false" aria-controls="photo-1{{ offer.id }}{{ include.aid }}">
             {{ site.data.uk.re_images }}
           </a>
           {%- endif -%}
-          <a class="card-link" data-toggle="collapse" data-target=".collapse0{{ offer.id }}{{ include.aid }}" href="#close" role="button" aria-expanded="false" aria-controls="more-0{{ offer.id }}{{ include.aid }}{% if isImage != '' %} photo-1{{ offer.id }}{{ include.aid }}{% endif %}">
+          <a class="card-link" id="close-1{{ offer.id }}{{ include.aid }}" data-toggle="collapse" data-target=".collapse0{{ offer.id }}{{ include.aid }}" href="#close" role="button" aria-expanded="false" aria-controls="close-1{{ offer.id }}{{ include.aid }}">
             {{ site.data.uk.re_collapse }}
           </a>
         </dd>
