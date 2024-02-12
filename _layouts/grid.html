@@ -30,8 +30,6 @@ layout: default
       {%- assign data = paged | split: '/' | slice: 2, 4 | join: '/' | prepend: 'data/' | append: '.html' -%}
     {%- elsif slashd.size == 5 -%}
       {%- assign data = paged | split: '/' | slice: 3, 5 | join: '/' | prepend: 'data/' | append: '.html' -%}
-    {%- elsif slashd.size == 6 -%}
-      {%- assign data = paged | split: '/' | slice: 3, 5 | join: '/' | prepend: 'data/' | append: '.html' -%}
     {%- endif -%}
     {%- if data -%}
       {%- include {{ data }} -%}
