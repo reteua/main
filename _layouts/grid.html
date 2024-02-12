@@ -5,9 +5,7 @@ layout: default
 {%- include back-title.html minus='1' so='1' st='4' data='title' -%}
 <div class="row">
   <div class="col-12">
-    <h1 class="h{%- if paged contains '/realtor/' -%}3{%- else -%}2{%- endif -%}">
-      {{ paget }} {{ idata }}
-    </h1>
+    <h1 class="h{%- if paged contains '/realtor/' -%}3{%- else -%}2{%- endif -%}">{{ paget }} {{ idata }}</h1>
     {%- assign isContent = content | strip_newlines -%}{%- if isContent == "" -%}{%- else -%}{{ content }}{%- endif -%}
     {%- include nav-section.html -%}
     <h2 class="h3 my-3 #{{ paginator.posts.size }}">
@@ -32,6 +30,8 @@ layout: default
       {%- assign data = paged | split: '/' | slice: 2, 4 | join: '/' | prepend: 'data/' | append: '.html' -%}
     {%- elsif slashd.size == 5 -%}
       {%- assign data = paged | split: '/' | slice: 3, 5 | join: '/' | prepend: 'data/' | append: '.html' -%}
+    {%- elsif slashd.size == 6 -%}
+      {%- assign data = paged | split: '/' | slice: 4, 6 | join: '/' | prepend: 'data/' | append: '.html' -%}
     {%- endif -%}
     {%- if data -%}
       {%- include {{ data }} -%}
