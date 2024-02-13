@@ -8,7 +8,7 @@ layout: default
     <h1 class="h{%- if paged contains '/realtor/' -%}3{%- else -%}2{%- endif -%}">{{ paget }} {{ idata }}</h1>
     {%- assign isContent = content | strip_newlines -%}{%- if isContent == "" -%}{%- else -%}{{ content }}{%- endif -%}
     {%- include nav-section.html -%}
-    <h2 class="h3 my-3 #{{ paginator.posts.size }}">
+    <h2 class="h3 my-3 {{ backd }}">
       {%- if paged contains '/rent/' -%}
         {{ site.data.uk.re_rent_h2 }}
       {%- elsif paged contains '/land/' -%}
@@ -30,6 +30,8 @@ layout: default
       {%- assign data = paged | split: '/' | slice: 2, 4 | join: '/' | prepend: 'data/' | append: '.html' -%}
     {%- elsif slashd.size == 5 -%}
       {%- assign data = paged | split: '/' | slice: 3, 5 | join: '/' | prepend: 'data/' | append: '.html' -%}
+    {%- elsif slashd.size > 5 -%}
+      {% assign data = backd | split: '/' | slice: 3, 5 | join: '/' | prepend: 'data/' | append: '.html' %}
     {%- endif -%}
     {%- if data -%}
       {%- include {{ data }} -%}
