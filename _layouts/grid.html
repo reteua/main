@@ -8,7 +8,7 @@ layout: default
     <h1 class="h{%- if paged contains '/realtor/' -%}3{%- else -%}2{%- endif -%}">{{ paget }} {{ idata }}</h1>
     {%- assign isContent = content | strip_newlines -%}{%- if isContent == "" -%}{%- else -%}{{ content }}{%- endif -%}
     {%- include nav-section.html -%}
-    <h2 class="h3 my-3 {{ backd }}">
+    <h2 class="h3 my-3">
       {%- if paged contains '/rent/' -%}
         {{ site.data.uk.re_rent_h2 }}
       {%- elsif paged contains '/land/' -%}
@@ -25,7 +25,6 @@ layout: default
         {{ site.data.uk.re_all_h2 }}
       {%- endif -%}
     </h2>
-    {%- assign json = here | append: 'data/' | append: slugd | append: '.json' -%}
     {%- if slashd.size == 4 -%}
       {%- assign data = paged | split: '/' | slice: 2, 4 | join: '/' | prepend: 'data/' | append: '.html' -%}
     {%- elsif slashd.size == 5 -%}
