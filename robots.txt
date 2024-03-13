@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /*/data/*
+Disallow: /*/data/
+Disallow: /*/data/*.json
+Disallow: *.json
+Disallow: *.yml
+Disallow: *CNAME
+Disallow: /assets/css/*
+Disallow: /assets/js/*
+Disallow: /404.html
+Disallow: /add.html
+Disallow: /new.html
+Sitemap: https://www.realestate.te.ua/sitemap.xml
