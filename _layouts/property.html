@@ -90,8 +90,11 @@ layout: default
       </div>
       <div class="col">
         <dl class="properties">
-
-          <dt>{% if page.rent %}Орендодавець{% else %}Продавець{% endif %}</dt>
+          <dt>
+            <a tabindex="0" class="link" data-toggle="popover" data-trigger="focus" data-placement="top" data-html="true" data-content="Якщо Ви <b>{{ page.seller }}</b> і бажаєте оновити оголошення чи щось додати до оголошення, або видалити оголошення, будь ласка зв'яжіться знами у зручний для вас спосіб. Ми завжди раді допомогти." role="button">
+              {% if page.rent %}Орендодавець{% else %}Продавець{% endif %}
+            </a>
+          </dt>
           <dd><a href="{{ site.url }}/region/{{ site.region_slug }}/?id={{ page.phone }}" title="{{ site.data.uk.offers }} у списку">{{ page.seller }}</a></dd>
 
           <dt>Контакти {% if page.rent %}орендодавця{% else %}продавця{% endif %}</dt>
@@ -151,7 +154,7 @@ layout: default
     {%- assign location = page.location | default: page.region | strip -%}
     {%- assign address = page.address | strip -%}
 
-    {%- assign on_address = offers | where_exp: "i", "i.location == location and i.address == address and i.id != uid" -%}
+    {%- assign on_address = offers | where_exp: 'i', "i.location == location and i.address == address and i.id != uid" -%}
     {%- if on_address.size > 0 -%}
       {%- for offer in on_address limit: 3 -%}
         {%- capture aid -%}1{%- increment counter -%}{%- endcapture -%}
@@ -168,13 +171,13 @@ layout: default
     {%- endif -%}
 
     {%- assign street = address | split: ',' | first -%}
-    {%- assign on_street = offers | where_exp: "i", "i.location == location and i.address contains street and i.id != uid" -%}
+    {%- assign on_street = offers | where_exp: 'i', "i.location == location and i.address contains street and i.id != uid" -%}
     {%- if on_street.size > 0 -%}
       {%- for offer in on_street limit: 3 -%}
         {%- capture aid -%}2{%- increment counter -%}{%- endcapture -%}
         {%- if forloop.first -%}
           <hr>
-          <h2>У цьому районі знадено</h2>
+          <h2>У цьому районі знайдено</h2>
           <ul class="row mx-n2 row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 list-unstyled">
         {%- endif -%}
             <li class="col px-2 mb-3">{%- include property/card.html offer=offer aid=aid -%}</li>
@@ -186,7 +189,7 @@ layout: default
 
     {%- assign phone = page.phone | strip -%}
     {%- assign seller = page.seller | strip -%}
-    {%- assign in_seller = offers | where_exp: "i", "i.id != uid and i.phone == phone and i.seller == seller" -%}
+    {%- assign in_seller = offers | where_exp: 'i', "i.id != uid and i.phone == phone and i.seller == seller" -%}
     {%- if in_seller.size > 0 -%}
       {%- for offer in in_seller limit: 3 -%}
         {%- capture aid -%}3{%- increment counter -%}{%- endcapture -%}
