@@ -5,3 +5,4 @@
 {%- assign slugd = paged | split: '/' | last -%}
 {%- assign slashu = pageu | split: '/' -%}
 {%- assign slugu = pageu | split: '/' | last -%}
+{%- if pageu contains '/city/' or pageu contains '/town/' -%}{%- assign isCityTown = true -%}{%- else -%}{%- assign isCityTown = false -%}{%- endif -%}
