@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '4.2.2'
+gem 'logger', '1.7.0'
+gem 'jekyll', '4.4.1'
 
 group :jekyll_plugins do
-  gem 'jekyll-sitemap'
+  gem 'jekyll-sitemap', '1.4.0'
   gem 'jekyll-paginate-v2', '3.0.0'
-  gem 'jekyll-get-json'
+  gem 'jekyll-get-json', '1.0.0'
 end
